@@ -1,3 +1,10 @@
+document.getElementById('close-2').addEventListener('click', function(){
+    document.getElementById('alert-2').classList.add('hidden');
+  })
+  
+
+
+
 /* 
 1. add withdraw button event handler
 2. get withdraw amount by using getInputFieldValueById function
@@ -11,10 +18,26 @@
 
 document.getElementById('btn-withdraw').addEventListener('click', function(){
     const newWithdrawAmount = getInputFieldValueById('withdraw-field');
+
+
+    const previousBalanceTotal = getTextElementValueById('balance-total');
+
+
+    if(isNaN(newWithdrawAmount) || newWithdrawAmount < 0 || typeof (newWithdrawAmount) !== 'number' || newWithdrawAmount === null || newWithdrawAmount == '' || newWithdrawAmount > previousBalanceTotal){
+        // alert('Please enter valid amount');
+        document.getElementById('alert-2').classList.remove('hidden');
+        return;
+      }
+      else{
+        document.getElementById('alert-2').classList.add('hidden');
+      }
+
+
+
     const previousWithdrawTotal = getTextElementValueById('withdraw-total');
     const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
     setTextElementValueById('withdraw-total', newWithdrawTotal);
-    const previousBalanceTotal = getTextElementValueById('balance-total');
+    
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     setTextElementValueById('balance-total', newBalanceTotal);
 })
