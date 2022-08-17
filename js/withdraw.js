@@ -40,4 +40,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     setTextElementValueById('balance-total', newBalanceTotal);
+
+
+    transictionHistory('Withdraw', newWithdrawAmount);
 })

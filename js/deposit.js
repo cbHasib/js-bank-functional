@@ -43,4 +43,7 @@ const newBalanceTotal = previousBalanceTotal + newDepositAmount;
 setTextElementValueById('balance-total', newBalanceTotal);
 
 
+
+transictionHistory('Deposit', newDepositAmount);
+
 });
