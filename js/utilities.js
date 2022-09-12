@@ -1,3 +1,12 @@
+// previous total
+let preTotal  = localStorage.getItem("totalBalance");
+preTotal = +preTotal;
+!preTotal? (localStorage.setItem('totalBalance', '1240'), 
+setTextElementValueById('balance-total', '1240')) : setTextElementValueById('balance-total', preTotal);
+
+
+
+
 function getInputFieldValueById(inputFieldId) {
   const inputField = document.getElementById(inputFieldId);
   const inputFieldValueString = inputField.value;

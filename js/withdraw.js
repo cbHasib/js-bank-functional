@@ -4,6 +4,12 @@ document.getElementById('close-2').addEventListener('click', function(){
   
 
 
+// previous withdraw
+let preWithdaw  = localStorage.getItem("withdrawTotal");
+!preWithdaw? localStorage.setItem('withdrawTotal', '0') : '';
+preWithdaw = +preWithdaw;
+setTextElementValueById('withdraw-total', preWithdaw);
+
 
 /* 
 1. add withdraw button event handler
@@ -37,9 +43,12 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const previousWithdrawTotal = getTextElementValueById('withdraw-total');
     const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
     setTextElementValueById('withdraw-total', newWithdrawTotal);
+    localStorage.setItem('withdrawTotal', newWithdrawTotal);
     
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     setTextElementValueById('balance-total', newBalanceTotal);
+    localStorage.setItem('totalBalance', newBalanceTotal);
+
 
 
     transictionHistory('Withdraw', newWithdrawAmount);
